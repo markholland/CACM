@@ -19,18 +19,9 @@ int getCycleLength(int n) {
 }
 
 int main() {
-    int i, j, n, max, currentCycleLength;
+    unsigned int i, j, n, max, currentCycleLength;
 
-    #ifndef ONLINE_JUDGE 
-    ofstream fout ("110101.oup");
-    ifstream fin ("110101.inp");
-    #endif
-
-    #ifdef ONLINE_JUDGE
     while(cin>>i>>j) {
-    #else
-    while(fin>>i>>j) {
-    #endif
         max = 0; // Maximum cycle length between [i,j]
         for(n = i; n <= j; n++) {
             currentCycleLength = getCycleLength(n);
@@ -38,12 +29,7 @@ int main() {
                 max = currentCycleLength;
             }
         }
-
-        #ifdef ONLINE_JUDGE
-        cout << i << " " << j << " " << max << endl;
-        #else
-        fout << i << " " << j << " " << max << endl;
-        #endif
+        printf("%u %u %u\n", i,j,max);
     }
     return 0;
 }
