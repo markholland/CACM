@@ -1,29 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_REGISTERS 10
-#define MAX_RAM 1000
+#define MAX_REGISTERS 15
+#define MAX_RAM 1005
 #define MAX_WORDS 3
 
-void newArray(int* array) {
 
-	int i;
-
-	for(i=0; i<MAX_REGISTERS; i++) {
-		array[i] = 0;	
-	}
-}
-
-void newMultiArray(int** array) {
-
-	int i, j;
-
-	for(i=0; i<MAX_RAM; i++) {
-		for(j=0; j<MAX_WORDS; j++) {
-		array[i][j] = 0;	
-		}
-	}
-}
 
 int nthdigit(int x, int n)
 {
@@ -40,9 +22,10 @@ int main() {
 	int current_ram;
 	int k;
 	
-	int *registers;
-	int **ram;
+	int registers[MAX_REGISTERS];
+	int ram[MAX_RAM];
 
+	memset(ram, 0, MAX_RAM*sizeof(int));
 
 	if( scanf( "%d\n", &num_cases ) == 1 ) {
 		scanf("\n");
